@@ -5,14 +5,13 @@ const app = express()
 const port = 9000
 
 app.use(express.static(path.join(__dirname, 'public')))
-// app.use(express.static(path.join(__dirname, 'military-base/dist')))
 app.use(express.static(path.join(__dirname, 'src')))
 
 app.get('/api', (req, res) => {
     console.dir(req.route)
-    res.send(`Welcome to Express!`)
+    res.send(`Here is military logistics base!`)
 })
 
 app.listen(port, () => {
-    console.log(`listening at port ${port}`)
+    console.log(`Access http://localhost:${port}`)
 })
