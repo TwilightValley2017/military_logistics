@@ -1,4 +1,4 @@
-function dynamicLoad(params) {
+function dynamicScriptLoader(params) {
     var script = document.createElement('script'),
         fn = params.callback || function() {}
 
@@ -8,7 +8,16 @@ function dynamicLoad(params) {
     }
 
     script.src = params.url
-    document.getElementsByTagName('head')[0].appendChild(script)
+    params.id && (script.id = params.id)
+    document.body.appendChild(script)
+}
+
+function dynamicStyleLoader(params) {
+    var link = document.createElement('link')
+    link.type = 'text/css'
+    link.rel = 'stylesheet'
+    link.href = params.href
+    document.head.appendChild(link)
 }
 
 /**
@@ -19,10 +28,24 @@ var DIRECTORY = {
     userAgent: {
         localStorage: 'user-agent/local-storage.js',
     },
+    css: {
+        loader: 'css/loader.js',
+        tank: {
+            template: 'css/tank/DRY.js',
+            style: 'css/tank/DRY.css',
+        }
+    }
+}
+
+var SCRIPT_TYPE = {
+    module: 'module',
 }
 
 window.tip = function(message) {
     console.log('%c' + message, 'color: green')
 }
 
-dynamicLoad({ url: DIRECTORY.userAgent.localStorage })
+// dynamicScriptLoader({ url: DIRECTORY.userAgent.localStorage })
+dynamicScriptLoader({ url: DIRECTORY.css.tank.template })
+dynamicScriptLoader({ url: DIRECTORY.css.loader })
+dynamicStyleLoader({ href: DIRECTORY.css.tank.style })
