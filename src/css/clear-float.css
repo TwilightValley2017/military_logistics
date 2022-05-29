@@ -1,0 +1,3 @@
+/*清除浮动代码*/ 
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0;overflow:hidden;} 
+.clearfloat{zoom:1} 

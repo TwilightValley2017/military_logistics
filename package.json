@@ -1,0 +1,29 @@
+{
+  "name": "military_logistics",
+  "version": "1.0.0",
+  "description": "JavaScript 基础/进阶知识",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "compile": "npx tsc",
+    "tsc:watch": "npx tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TwilightValley2017/military_logistics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TwilightValley2017/military_logistics/issues"
+  },
+  "homepage": "https://github.com/TwilightValley2017/military_logistics#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
