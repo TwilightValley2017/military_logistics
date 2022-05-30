@@ -38,7 +38,10 @@ var DIRECTORY = {
             template: 'document-fragment/mvvm/template.js',
             handler: 'document-fragment/mvvm/mvvm.js'
         }
-    }
+    },
+    es5: {
+        funcArgs: 'es5/func-args.js',
+    },
 }
 
 var SCRIPT_TYPE = {
@@ -52,7 +55,7 @@ window.tip = function(message) {
 // dynamicScriptLoader({ url: DIRECTORY.userAgent.localStorage })
 // dynamicScriptLoader({ url: DIRECTORY.documentFragment.tank.template })
 // dynamicStyleLoader({ href: DIRECTORY.documentFragment.tank.style })
-dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.template })
-dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.handler })
+// dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.template })
+// dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.handler })
 
-dynamicScriptLoader({ url: DIRECTORY.documentFragment.loader })
+// dynamicScriptLoader({ url: DIRECTORY.documentFragment.loader })
