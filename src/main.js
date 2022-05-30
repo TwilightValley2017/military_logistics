@@ -28,11 +28,15 @@ var DIRECTORY = {
     userAgent: {
         localStorage: 'user-agent/local-storage.js',
     },
-    css: {
-        loader: 'css/loader.js',
+    documentFragment: {
+        loader: 'document-fragment/loader.js',
         tank: {
-            template: 'css/tank/DRY.js',
-            style: 'css/tank/DRY.css',
+            template: 'document-fragment/tank/template.js',
+            style: 'document-fragment/tank/DRY.css',
+        },
+        mvvm: {
+            template: 'document-fragment/mvvm/template.js',
+            handler: 'document-fragment/mvvm/mvvm.js'
         }
     }
 }
@@ -46,6 +50,9 @@ window.tip = function(message) {
 }
 
 // dynamicScriptLoader({ url: DIRECTORY.userAgent.localStorage })
-dynamicScriptLoader({ url: DIRECTORY.css.tank.template })
-dynamicScriptLoader({ url: DIRECTORY.css.loader })
-dynamicStyleLoader({ href: DIRECTORY.css.tank.style })
+// dynamicScriptLoader({ url: DIRECTORY.documentFragment.tank.template })
+// dynamicStyleLoader({ href: DIRECTORY.documentFragment.tank.style })
+dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.template })
+dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.handler })
+
+dynamicScriptLoader({ url: DIRECTORY.documentFragment.loader })
