@@ -40,7 +40,8 @@ var DIRECTORY = {
         }
     },
     es5: {
-        funcArgs: 'es5/func-args.js',
+        dataTypes: 'es5/data-types.js',
+
     },
 }
 
@@ -52,6 +53,7 @@ window.tip = function(message) {
     console.log('%c' + message, 'color: green')
 }
 
+dynamicScriptLoader({ url: DIRECTORY.es5.dataTypes })
 // dynamicScriptLoader({ url: DIRECTORY.userAgent.localStorage })
 // dynamicScriptLoader({ url: DIRECTORY.documentFragment.tank.template })
 // dynamicStyleLoader({ href: DIRECTORY.documentFragment.tank.style })
