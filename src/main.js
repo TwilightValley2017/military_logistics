@@ -1,22 +1,33 @@
-function dynamicScriptLoader(params) {
-    var script = document.createElement('script'),
-        fn = params.callback || function() {}
+/**
+ * 动态加载 JavaScript
+ * 使用 Promise 保证执行顺序与加载顺序一致
+ * @param {script 标签的属性} params 
+ * @returns Promise 实例
+ */
+function loadScript(params) {
+    return new Promise(function(resolve) {
+        var script = document.createElement('script'),
+        fn = params.callback || function() {
+            window.tip(`${script.src} loaded`)
+        }
 
-    script.type = params.type || 'text/javascript';
-    script.onload = function() {
-        fn()
-    }
+        script.type = params.type || 'text/javascript'
+        script.src = params.url
+        params.id && (script.id = params.id)
 
-    script.src = params.url
-    params.id && (script.id = params.id)
-    document.body.appendChild(script)
+        script.addEventListener('load', fn)
+        script.addEventListener('load', resolve)
+
+        document.body.appendChild(script)
+    })
 }
 
-function dynamicStyleLoader(params) {
+function loadStyle(params) {
     var link = document.createElement('link')
     link.type = 'text/css'
     link.rel = 'stylesheet'
     link.href = params.href
+
     document.head.appendChild(link)
 }
 
@@ -28,8 +39,11 @@ var DIRECTORY = {
     userAgent: {
         localStorage: 'user-agent/local-storage.js',
     },
+    es5: {
+        dataTypes: 'es5/data-types.js',
+    },
     documentFragment: {
-        loader: 'document-fragment/loader.js',
+        templateLoader: 'document-fragment/template-loader.js',
         tank: {
             template: 'document-fragment/tank/template.js',
             style: 'document-fragment/tank/DRY.css',
@@ -37,11 +51,10 @@ var DIRECTORY = {
         mvvm: {
             template: 'document-fragment/mvvm/template.js',
             handler: 'document-fragment/mvvm/mvvm.js'
-        }
-    },
-    es5: {
-        dataTypes: 'es5/data-types.js',
-
+        },
+        anchorTag: {
+            template: 'document-fragment/anchor-tag/template.js'
+        },
     },
 }
 
@@ -53,11 +66,10 @@ window.tip = function(message) {
     console.log('%c' + message, 'color: green')
 }
 
-dynamicScriptLoader({ url: DIRECTORY.es5.dataTypes })
-// dynamicScriptLoader({ url: DIRECTORY.userAgent.localStorage })
-// dynamicScriptLoader({ url: DIRECTORY.documentFragment.tank.template })
-// dynamicStyleLoader({ href: DIRECTORY.documentFragment.tank.style })
-// dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.template })
-// dynamicScriptLoader({ url: DIRECTORY.documentFragment.mvvm.handler })
-
-// dynamicScriptLoader({ url: DIRECTORY.documentFragment.loader })
+loadScript({ url: DIRECTORY.documentFragment.anchorTag.template })
+.then(function() {
+    return loadScript({ url: DIRECTORY.documentFragment.templateLoader })
+})
+.then(function() {
+    // load other resources if needed
+})

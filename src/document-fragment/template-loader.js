@@ -9,6 +9,5 @@
     var clone = temp.content.cloneNode(true)
     document.body.insertBefore(clone, document.body.querySelector('script'))
     
+    window.tip('template loaded')
 })(template)
-
-tip('loader loaded')
