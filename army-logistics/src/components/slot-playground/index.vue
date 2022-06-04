@@ -3,8 +3,14 @@
         <h1>{{ title }}</h1>
         <template v-for="item in cards">
             <card-unit :key="item.id" :dataSource="item">
-                <template v-slot:default="summary">
-                    <summary-unit :genre="summary.genre" :content="summary.content"/>
+                <template v-slot:events="{ events }">
+                    <i>today's todo lists</i>
+                    <ul>
+                        <li v-for="(todo, index) in events" :key="`${todo}${index}`">{{ todo }}</li>
+                    </ul>
+                </template>
+                <template v-slot:summary="{ genre, content }">
+                    <summary-unit :genre="genre" :content="content"/>
                 </template>
             </card-unit>
         </template>
@@ -22,9 +28,9 @@ export default {
         return {
             title: "slot playground",
             cards: [
-                { id: 1, title: 'card01', summary: { genre: 'weekday', content: 'Monday' } },
-                { id: 2, title: 'card02', summary: { genre: 'weekday', content: 'Tuesday' } },
-                { id: 3, title: 'card03', summary: { genre: 'weekend', content: 'Saturday' } },
+                { id: 1, title: 'card01', summary: { genre: 'weekday', content: 'Monday' }, events: ['breakfast', 'go to work'] },
+                { id: 2, title: 'card02', summary: { genre: 'weekday', content: 'Tuesday' }, events: ['on annual leave'] },
+                { id: 3, title: 'card03', summary: { genre: 'weekend', content: 'Saturday' }, events: ['breakfast', 'shopping'] },
             ],
         }
     },

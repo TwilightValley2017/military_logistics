@@ -1,8 +1,7 @@
 <template>
     <div>
-        <strong v-if="genre === 'weekday'" class="weekday">{{ genre }}</strong>
-        <i v-else class="weekend">{{ genre }}</i>
-        {{ content }}
+        <span v-if="genre === 'weekday'" class="weekday">{{ content }}</span>
+        <i v-else class="weekend">{{ content }}</i>
     </div>
 </template>
 
@@ -12,16 +11,16 @@ export default {
         'genre', 'content'
     ],
     data() {
-        
+        return {}
     },
 }
 </script>
 
 <style>
 .weekday {
-    color: green;
+    color: DodgerBlue;
 }
 .weekend {
-    color: red;
+    color: green;
 }
 </style>
