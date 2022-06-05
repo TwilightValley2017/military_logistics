@@ -50,11 +50,15 @@ var DIRECTORY = {
         },
         mvvm: {
             template: 'document-fragment/mvvm/template.js',
-            handler: 'document-fragment/mvvm/mvvm.js'
+            handler: 'document-fragment/mvvm/mvvm.js',
         },
         anchorTag: {
-            template: 'document-fragment/anchor-tag/template.js'
+            template: 'document-fragment/anchor-tag/template.js',
         },
+        normalFlow: {
+            template: 'document-fragment/normal-flow/template.js',
+            style: 'document-fragment/normal-flow/style.css',
+        }
     },
 }
 
@@ -66,10 +70,11 @@ window.tip = function(message) {
     console.log('%c' + message, 'color: green')
 }
 
-loadScript({ url: DIRECTORY.documentFragment.anchorTag.template })
+loadScript({ url: DIRECTORY.documentFragment.normalFlow.template })
 .then(function() {
     return loadScript({ url: DIRECTORY.documentFragment.templateLoader })
 })
 .then(function() {
     // load other resources if needed
 })
+loadStyle({ href: DIRECTORY.documentFragment.normalFlow.style })

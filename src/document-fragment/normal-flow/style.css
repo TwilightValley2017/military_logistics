@@ -1,0 +1,45 @@
+.container {
+    width: 800px;
+    height: 600px;
+    background-color: silver;
+    padding: 5px;
+}
+
+.container div {
+    width: 200px;
+    height: 60px;
+    background-color: burlywood;
+}
+
+/* .container > div {
+    display: inline-block;
+} */
+
+/* section {
+    width: 200px;
+    height: 50px;
+    background-color: cornflowerblue;
+    float: left;
+} */
+
+body {
+    background: beige;
+  }
+  
+section {
+    transform: rotate(0deg);
+    width: 400px;
+    height: 480px;
+    margin: 30px;
+    padding: 15px;
+    background: lightgray;
+}
+
+p {
+    position: absolute;
+    width: 50%;   /* == (50vw - (width of vertical scrollbar)) */
+    height: 50%;  /* == (50vh - (height of horizontal scrollbar)) */
+    margin: 5%;   /* == (5vw - (width of vertical scrollbar)) */
+    padding: 5%;  /* == (5vw - (width of vertical scrollbar)) */
+    background: cyan;
+}
