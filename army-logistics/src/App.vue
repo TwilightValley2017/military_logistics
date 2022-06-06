@@ -2,16 +2,19 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <slot-playground></slot-playground>
+    <filez-entry/>
   </div>
 </template>
 
 <script>
 import SlotPlayground from './components/slot-playground'
+import FilezEntry from './components/filez-design-playground'
 
 export default {
   name: 'App',
   components: {
     SlotPlayground,
+    FilezEntry,
   }
 }
 </script>
