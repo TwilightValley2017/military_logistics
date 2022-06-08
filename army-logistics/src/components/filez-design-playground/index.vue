@@ -1,18 +1,16 @@
 <template>
     <div>
-    <fz-date-picker @change="onChange" />
-    <br />
-    <fz-month-picker @change="onChange" placeholder="Select month" />
-    <br />
-    <fz-range-picker @change="onChange" />
-    <br />
-    <fz-week-picker @change="onChange" placeholder="Select week" />
+      <form-slide></form-slide>
   </div>
 </template>
 
 <script>
+import FormSlide from './form-slide.vue'
 export default {
     name: 'filez-entry',
+    components: {
+      FormSlide
+    },
     data() {
       return {}  
     },
