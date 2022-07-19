@@ -55,6 +55,10 @@ var DIRECTORY = {
         anchorTag: {
             template: 'document-fragment/anchor-tag/template.js'
         },
+        svgTag: {
+            template: 'document-fragment/svg-tag/template.js',
+            style: 'document-fragment/svg-tag/style.css'
+        }
     },
 }
 
@@ -66,10 +70,11 @@ window.tip = function(message) {
     console.log('%c' + message, 'color: green')
 }
 
-loadScript({ url: DIRECTORY.documentFragment.anchorTag.template })
+loadScript({ url: DIRECTORY.documentFragment.svgTag.template })
 .then(function() {
     return loadScript({ url: DIRECTORY.documentFragment.templateLoader })
 })
 .then(function() {
     // load other resources if needed
+    return loadStyle({ href: DIRECTORY.documentFragment.svgTag.style })
 })
