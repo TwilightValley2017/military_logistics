@@ -1,17 +1,27 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <slot-playground></slot-playground>
+    <component :is="current">
+    </component>
   </div>
 </template>
 
 <script>
 import SlotPlayground from './components/slot-playground'
+import FilezEntry from './components/filez-design-playground'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
+    HelloWorld,
     SlotPlayground,
+    FilezEntry,
+  },
+  data() {
+    return {
+      current: HelloWorld,
+    }
   }
 }
 </script>
