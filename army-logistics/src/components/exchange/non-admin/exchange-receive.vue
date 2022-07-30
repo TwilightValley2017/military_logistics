@@ -1,9 +1,9 @@
 <template>
-    <div>exchange-receive</div>
+    <div>exchange receive</div>
 </template>
 
 <script>
 export default {
-    name: 'exchange-filez',
+    name: 'exchange-receive',
 }
 </script>
