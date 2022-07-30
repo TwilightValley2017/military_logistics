@@ -37,6 +37,8 @@ componentRoutes.keys().forEach(key => {
     }
 })
 
+console.log({ routes })
+
 const router = new VueRouter({
     routes
 })

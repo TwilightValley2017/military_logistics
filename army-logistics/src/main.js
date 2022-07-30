@@ -19,7 +19,7 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 // 模拟用户角色与增值模块
-localStorage.setItem('ADMIN', 'TRUE')
+localStorage.setItem('ADMIN', 'FALSE')
 localStorage.setItem('EXCHANGE', 'TRUE')
 
 new Vue({
