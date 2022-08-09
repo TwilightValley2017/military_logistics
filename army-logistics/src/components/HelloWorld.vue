@@ -17,7 +17,23 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
+  },
+  created() {
+    this.init()
+    console.log('created of HelloWorld comp')
+  },
+  methods: {
+    init() {
+      Promise.all([
+        this.$store.dispatch('getDeployMode'),
+        this.$store.dispatch('anotherRequest'),
+      ]).then((resp) => {
+        console.log({resp})
+      }).catch((err) => {
+        console.log('init', {err})
+      })
+    }
   },
 }
 </script>

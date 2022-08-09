@@ -1,13 +1,13 @@
 import VueRouter from 'vue-router'
 import SlotPlayground from './components/slot-playground'
 import FilezEntry from './components/filez-design-playground'
-import Layout from './components/HelloWorld.vue'
+// import Layout from ''
 
 const routes = [
     {
         name: 'entry',
         path: '/',
-        component: Layout, /* 上下结构布局的模板组件 */
+        component: () => import('./components/HelloWorld.vue'), /* 上下结构布局的模板组件 */
         children: [],
     },
     {
