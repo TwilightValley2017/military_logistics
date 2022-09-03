@@ -7,7 +7,6 @@ const validateRole = () => new Promise((resolve) => {
         }
     }, 2000)
 })
-    
 
 const validateLicense = () => new Promise((resolve) => {
     setTimeout(() => {
@@ -26,18 +25,17 @@ const routes = [
         redirect: 'manager/exchange-channel',
         children: [],
         beforeEnter: async (to, from, next) => {
-            // console.log({ to, from })
             let hasLicense = await validateLicense()
             if (!hasLicense) {
                 alert('未购买')
-                next(from)
+                location.href = '/'
                 return
             }
         
             let isAdmin = await validateRole()
             if (!isAdmin) {
                 alert('无权限')
-                next(from)
+                location.href = '/'
                 return
             }
         
@@ -69,7 +67,11 @@ nonAdminRoutes.keys().forEach(key => {
                 let hasLicense = await validateLicense()
                 if (!hasLicense) {
                     alert('未购买')
-                    next(from)
+                    /**
+                     * 不能使用 next(from) 作为统一处理的目标页面
+                     * from 只能为站内路由地址，无法处理站外地址
+                     */
+                    location.href = '/'
                     return
                 }
                 next()
