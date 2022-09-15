@@ -42,6 +42,10 @@ var DIRECTORY = {
     es5: {
         dataTypes: 'es5/data-types.js',
     },
+    es6: {
+        es6: 'es6/es6.js',
+        promiseSourceCode: 'es6/promise-source-code.js',
+    },
     documentFragment: {
         templateLoader: 'document-fragment/template-loader.js',
         tank: {
@@ -68,13 +72,13 @@ var SCRIPT_TYPE = {
 
 window.tip = function(message) {
     console.log('%c' + message, 'color: green')
-}
+}   
 
-loadScript({ url: DIRECTORY.documentFragment.svgTag.template })
+loadScript({ url: DIRECTORY.es6.promiseSourceCode })
 .then(function() {
-    return loadScript({ url: DIRECTORY.documentFragment.templateLoader })
+    // return loadScript({ url: DIRECTORY.documentFragment.templateLoader })
 })
 .then(function() {
     // load other resources if needed
-    return loadStyle({ href: DIRECTORY.documentFragment.svgTag.style })
+    // return loadStyle({ href: DIRECTORY.documentFragment.svgTag.style })
 })

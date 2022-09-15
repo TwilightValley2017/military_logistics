@@ -1,13 +1,24 @@
-//#region 
+//#region Promise
 
-let monday = {a: 1, b: 2}
-let tuesday = [1, 2, 9, , 9]
+/** 第一种写法 */
+// promise
+// .then((response) => console.log('first callback') || Promise.resolve(response))
+// .then((response) => console.log(response))
+// .catch((error) => console.log({ error }))
 
-console.log('a' in monday)
-console.log(tuesday.length, 'length' in tuesday, 3 in tuesday)
+/** 第二种写法 */
+// promise.then((response) => console.log('first callback') || Promise.resolve(response))
+// promise.then((response) => console.log(response))
+// promise.catch((error) => console.log({ error }))
+
+// promise.then((response) => console.log(1) || new Promise((resolve) => setTimeout((val) => console.log(2) || resolve(val), 0, response)))
+// promise.then((response) => console.log(response))
+// .catch((error) => console.log({ error }))
+
+// promise.then((response) => Promise.reject(response))
+// promise.catch((error) => console.log({ error }))
 
 //#endregion
-
 
 //#region Object.freeze
 
