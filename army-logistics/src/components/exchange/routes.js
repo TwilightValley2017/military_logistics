@@ -1,21 +1,23 @@
 const validateRole = () => new Promise((resolve) => {
-    setTimeout(() => {
-        if (localStorage.getItem('ADMIN') === null || !localStorage.getItem('ADMIN').includes('TRUE')) {
-            resolve(false)
-        } else {
-            resolve(true)
-        }
-    }, 2000)
+    // setTimeout(() => {
+    //     if (localStorage.getItem('ADMIN') === null || !localStorage.getItem('ADMIN').includes('TRUE')) {
+    //         resolve(false)
+    //     } else {
+    //         resolve(true)
+    //     }
+    // }, 2000)
+    resolve(true)
 })
 
 const validateLicense = () => new Promise((resolve) => {
-    setTimeout(() => {
-        if (localStorage.getItem('EXCHANGE') === null || !localStorage.getItem('EXCHANGE').includes('TRUE')) {
-            resolve(false)
-        } else {
-            resolve(true)
-        }
-    }, 2000)
+    // setTimeout(() => {
+    //     if (localStorage.getItem('EXCHANGE') === null || !localStorage.getItem('EXCHANGE').includes('TRUE')) {
+    //         resolve(false)
+    //     } else {
+    //         resolve(true)
+    //     }
+    // }, 2000)
+    resolve(true)
 })
 
 const routes = [

@@ -9,9 +9,17 @@
 export default {
     name: 'exchange-send',
     created() {
+        /**
+         * 调试生命周期钩子
         console.log('created of child comp', { 
             isPrivate: this.$store.state.isPrivate
         })
+         */
+
+        // console.log('created', { vm: this })
+    },
+    mounted() {
+        // console.log('mounted', { vm: this })
     },
     methods: {
         login() {

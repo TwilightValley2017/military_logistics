@@ -21,7 +21,7 @@ export default {
   },
   created() {
     this.init()
-    console.log('created of HelloWorld comp')
+    // console.log('created of HelloWorld comp')
   },
   methods: {
     init() {

@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     actions: {
         getDeployMode (context) {
             return new Promise((resolve) => {
-                setTimeout(() => console.log('got deploy mode') || resolve(true), 0)
+                setTimeout(() => /*console.log('got deploy mode') ||*/ resolve(true), 0)
             }).then((resp) => {
                 context.commit('getDeployMode', resp)
             })
@@ -28,9 +28,10 @@ const store = new Vuex.Store({
             return new Promise((resolve, reject) => {
                 setTimeout(() => reject('something wrong...'))
             }).then((resp) => {
-                console.log({resp})
+                // console.log({resp})
+                context.commit('anotherRequest', resp)
             }).catch((err) => {
-                context.commit('anotherRequest', console.log({err}) || err)
+                context.commit('anotherRequest', /*console.log({err}) ||*/ err)
             })
         }
     }
