@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app" @click="alert('App')">
     <img alt="Vue logo" src="./assets/logo.png">
     <router-view></router-view>
   </div>
@@ -7,7 +7,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      color: { 'background-color': 'silver'},
+      bg:true,
+    }
+  }
 }
 </script>
 
@@ -19,5 +25,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.app {
+  background-color: antiquewhite;
+  padding: 16px;
 }
 </style>

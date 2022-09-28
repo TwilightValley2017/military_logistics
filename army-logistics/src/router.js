@@ -7,7 +7,7 @@ const routes = [
     {
         name: 'entry',
         path: '/',
-        component: () => import('./components/HelloWorld.vue'), /* 上下结构布局的模板组件 */
+        component: () => import('./components/vm-vc-vn/HelloWeb.vue'), /* 上下结构布局的模板组件 */
         children: [],
     },
     {
