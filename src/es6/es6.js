@@ -1,3 +1,63 @@
+// #region class
+
+class Parent {
+    constructor(vnode) {
+        // if (!vnode || Object.getPrototypeOf(vnode).constructor.name !== 'VNode') {
+        //     throw new Error('Cannot resolve parameter of constructor, instance of VNode expected')
+        // }
+
+        this.myName = 'parent'
+        this.creed = 'p creed'
+    }
+
+    get myBadge() {
+        console.log('p myBadge')
+        return this.myName
+    }
+
+    myCreed() {
+        console.log('p myCreed')
+        return this.creed
+    }
+}
+
+const Child = class Child extends Parent {
+    constructor() {
+        super()
+        this.myName = 'child'
+        this.creed = 'c creed'
+        // super.myCreed()
+        console.log(super.myCreed)
+    }
+    get myBadge() {
+        console.log('c myBadge')
+        return super.myBadge
+    }
+
+    myCreed() {
+        console.log('c myCreed')
+        return super.myCreed()
+    }
+}
+
+// let child = new Child()
+// console.log(child.myBadge, child.myCreed(), Object.getPrototypeOf(child))
+
+console.log(Child.prototype, Parent.prototype, Object.getPrototypeOf(Child.prototype) === Parent.prototype)
+// let parent = new Parent()
+// console.log(parent.myBadge, parent.myCreed())
+
+// class VNode {
+//     constructor() {
+//         console.log('实例化 VNode')
+//     }
+// }
+
+// let vnode = new VNode()
+// console.log(Object.getPrototypeOf(vnode).constructor.name === 'VNode')
+// #endregion
+
+
 //#region Promise
 
 /** 第一种写法 */
