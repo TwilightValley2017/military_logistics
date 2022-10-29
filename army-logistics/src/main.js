@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import router from './router.js'
 import store from './store.js'
-import patchPlugin from './patch-plugin'
+import patchPlugin from '@filez/test-script-attributes-generator'
 import '@filez/filez-design/dist/antd.css'
 import { 
   DatePicker,
@@ -31,6 +31,7 @@ Vue.use(Switch)
 Vue.use(List)
 
 Vue.use(VueRouter)
+Vue.use(patchPlugin, { module: 'web-mantis', printable: true })
 
 Vue.config.productionTip = false
 
@@ -43,9 +44,3 @@ new Vue({
   router,
   store,
 }).$mount('#app')
-
-const _$patch$_ = Vue.prototype.__patch__
-Vue.prototype.__patch__ = function (...args) {
-  patchPlugin(...args)
-  return _$patch$_(...args)
-}

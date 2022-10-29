@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app" @click="alert('App')">
+  <div id="app" class="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <router-view></router-view>
   </div>

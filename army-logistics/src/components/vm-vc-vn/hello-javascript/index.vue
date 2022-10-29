@@ -1,9 +1,9 @@
 <template>
   <div class="hello-js">
     <h3>{{message}}</h3>
-    <fz-button type="primary" @click="greeting">Hello JS</fz-button>
+    <fz-button type="primary" @click="greeting()" @click.native="showSomething">Hello JS</fz-button>
     <div>
-        <span @click="showRealName">Real name</span>
+        <span @click="showRealName()">Real name</span>
     </div>
   </div>
 </template>
@@ -20,8 +20,12 @@ export default {
         greeting() {
             this.message = 'Hello JS'
         },
-        showRealName() {
-            this.message = 'ECMA Script'
+        showRealName(param) {
+            console.log({param})
+            this.message = param
+        },
+        showSomething(){
+            console.log('show something')
         }
     }
 }
