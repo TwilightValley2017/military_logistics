@@ -7,6 +7,7 @@ const port = 9000
 if (process.argv.slice(2).length === 0) {
     app.use(express.static(path.join(__dirname, 'public')))
     app.use(express.static(path.join(__dirname, 'src')))
+    app.use(express.static(path.join(__dirname, 'dist')))
 } else {
     app.use(express.static(path.join(__dirname, process.argv.slice(2)[0], 'dist')))
 }
