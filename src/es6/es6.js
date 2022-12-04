@@ -1,11 +1,6 @@
 // #region class
-
 class Parent {
     constructor(vnode) {
-        // if (!vnode || Object.getPrototypeOf(vnode).constructor.name !== 'VNode') {
-        //     throw new Error('Cannot resolve parameter of constructor, instance of VNode expected')
-        // }
-
         this.myName = 'parent'
         this.creed = 'p creed'
     }
@@ -40,10 +35,9 @@ const Child = class Child extends Parent {
     }
 }
 
-// let child = new Child()
 // console.log(child.myBadge, child.myCreed(), Object.getPrototypeOf(child))
 
-console.log(Child.prototype, Parent.prototype, Object.getPrototypeOf(Child.prototype) === Parent.prototype)
+// console.log(Child.prototype, Parent.prototype, Object.getPrototypeOf(Child.prototype) === Parent.prototype)
 // let parent = new Parent()
 // console.log(parent.myBadge, parent.myCreed())
 
@@ -53,8 +47,7 @@ console.log(Child.prototype, Parent.prototype, Object.getPrototypeOf(Child.proto
 //     }
 // }
 
-// let vnode = new VNode()
-// console.log(Object.getPrototypeOf(vnode).constructor.name === 'VNode')
+export default Child
 // #endregion
 
 
