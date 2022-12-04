@@ -6,7 +6,8 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'src')))
-app.use(express.static(path.join(__dirname, 'dist')))
+app.use(express.static(path.join(__dirname, 'army-logistics', 'dist')))
+app.use(express.static(path.join(__dirname, 'af-logistics', 'dist')))
 
 app.get('/api', (req, res) => {
     console.dir(req.route)

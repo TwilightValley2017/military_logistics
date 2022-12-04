@@ -7,7 +7,8 @@ module.exports = defineConfig({
       // path: 'D:\\Repository\\github\\military_logistics\\army-logistics\\dist',
       filename: 'js/army.[contenthash:8].js',
       publicPath: '/',
-      chunkFilename: 'js/army.[contenthash:8].js'
+      chunkFilename: 'js/army.[contenthash:8].js',
     },
-  }
+  },
+  indexPath: 'army.html',
 })
