@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "start:army": "node app.js army-logistics",
     "compile": "npx tsc",
     "tsc:watch": "npx tsc --watch",
     "build": "webpack"

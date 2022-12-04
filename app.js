@@ -1,22 +1,49 @@
 const express = require('express')
 const path = require('path')
 
+// military logistics
 const app = express()
-const port = 9000
 
-if (process.argv.slice(2).length === 0) {
-    app.use(express.static(path.join(__dirname, 'public')))
-    app.use(express.static(path.join(__dirname, 'src')))
-    app.use(express.static(path.join(__dirname, 'dist')))
-} else {
-    app.use(express.static(path.join(__dirname, process.argv.slice(2)[0], 'dist')))
-}
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'src')))
+app.use(express.static(path.join(__dirname, 'dist')))
 
 app.get('/api', (req, res) => {
     console.dir(req.route)
     res.send(`Here is military logistics base!`)
 })
 
-app.listen(port, () => {
-    console.log(`Access http://localhost:${port}`)
+app.listen(9000, () => {
+    console.log(`Access http://localhost:${9000}`)
 })
+
+// army logistics app
+const armyLogisticApp = express()
+
+armyLogisticApp.use(express.static(path.join(__dirname, 'army-logistics', 'dist')))
+
+armyLogisticApp.get('/api', (req, res) => {
+    console.dir(req.route)
+    res.send(`Here is army logistics!`)
+})
+
+armyLogisticApp.listen(9010, () => {
+    console.log(`Access http://localhost:${9010}`)
+})
+
+// navy logistics app
+const navyLogisticApp = express()
+
+navyLogisticApp.use(express.static(path.join(__dirname, 'navy-logistics', 'dist')))
+
+navyLogisticApp.get('/api', (req, res) => {
+    console.dir(req.route)
+    res.send(`Here is navy logistics!`)
+})
+
+navyLogisticApp.listen(9020, () => {
+    console.log(`Access http://localhost:${9020}`)
+})
+
+
+
