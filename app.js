@@ -45,5 +45,19 @@ navyLogisticApp.listen(9020, () => {
     console.log(`Access http://localhost:${9020}`)
 })
 
+// air force logistics app
+const afLogisticApp = express()
+
+afLogisticApp.use(express.static(path.join(__dirname, 'af-logistics', 'dist')))
+
+afLogisticApp.get('/api', (req, res) => {
+    console.dir(req.route)
+    res.send(`Here is navy logistics!`)
+})
+
+afLogisticApp.listen(9030, () => {
+    console.log(`Access http://localhost:${9030}`)
+})
+
 
 
