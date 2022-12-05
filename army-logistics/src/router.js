@@ -1,9 +1,15 @@
 import VueRouter from 'vue-router'
 import SlotPlayground from './components/slot-playground'
 import FilezEntry from './components/filez-design-playground'
+import HelloWorld from './components/HelloWorld'
 // import Layout from ''
 
 const routes = [
+    {
+        name: 'army',
+        path: '/army',
+        component: HelloWorld,
+    },
     {
         name: 'entry',
         path: '/',

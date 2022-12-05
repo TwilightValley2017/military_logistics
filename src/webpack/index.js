@@ -1,4 +1,14 @@
-import Child from '../es6/es6-class'
+import { registerMicroApps, start } from 'qiankun';
 
-let child = new Child()
-console.log('Type is', Object.getPrototypeOf(child).constructor.name, Object.getPrototypeOf(child), child)
+registerMicroApps([
+  {
+    name: 'army', // app name registered
+    entry: '/army-logistics/',
+    container: '#monday',
+    activeRule: ['/army/#', '/army'],
+  },
+]);
+
+console.log("Micro Apps")
+
+start();

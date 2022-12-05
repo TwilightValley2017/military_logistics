@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { registerMicroApps, start } from 'qiankun'
 
 Vue.config.productionTip = false
 
@@ -13,3 +14,14 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+registerMicroApps([
+  {
+    name: 'army', // app name registered
+    entry: '/army-logistics/',
+    container: '#monday',
+    activeRule: '#/army',
+  },
+]);
+
+start();

@@ -6,6 +6,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'military.bundle.js'
       },
-    mode: 'production',
-    // mode: 'development',
+    // mode: 'production',
+    mode: 'development',
   }

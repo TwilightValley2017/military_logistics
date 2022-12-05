@@ -7,7 +7,7 @@
     "start": "node app.js",
     "compile": "npx tsc",
     "tsc:watch": "npx tsc --watch",
-    "build": "webpack"
+    "build": "npx webpack"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "qiankun": "^2.8.4"
   }
 }

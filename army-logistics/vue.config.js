@@ -1,14 +1,15 @@
 const { defineConfig } = require('@vue/cli-service')
+const { name } = require('./package.json');
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
     output: {
       hashFunction: 'xxhash64',
-      // path: 'D:\\Repository\\github\\military_logistics\\army-logistics\\dist',
       filename: 'js/army.[contenthash:8].js',
-      publicPath: '/',
+      library: `${name}-[name]`,
+      libraryTarget: 'umd',
       chunkFilename: 'js/army.[contenthash:8].js',
     },
   },
-  indexPath: 'army.html',
+  outputDir: '../dist/army-logistics/',
 })
